@@ -5,8 +5,8 @@ namespace Core.Movement {
 		[Tooltip("Отзеркалить поворот объекта")]
 		[SerializeField] protected bool hasReversedRotation = true;
 
-		[SerializeField] protected float movementSpeed = 5;
-		[SerializeField] protected float rotationSpeed = 200;
+		[SerializeField] protected float movementSpeed;
+		[SerializeField] protected float rotationSpeed;
 
 		private Vector3 _angleToRotate;
 
