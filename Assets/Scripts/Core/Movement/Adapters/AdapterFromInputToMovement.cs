@@ -1,18 +1,25 @@
+using Input;
 using UnityEngine;
 
-namespace Core.Movement {
-	public class ChangeTransformByInput : MonoBehaviour {
-		private Movement _movement;
+namespace Core.Movement.Adapters {
+	public class AdapterFromInputToMovement : MonoBehaviour {
 		private Vector3 _directionToRotate;
 		private Vector3 _directionToMove;
+		private Movement _movement;
+		private IInputHandler _inputHandlerPC;
 
 		private void Awake() {
-			_movement = gameObject.GetComponent<Movement>();
+			SetComponents();
 		}
 
 		private void Update() {
 			ChangeRotationByInput();
 			ChangeDirectionByInput();
+		}
+
+		private void SetComponents() {
+			_movement = gameObject.GetComponent<Movement>();
+			_inputHandlerPC = gameObject.GetComponent<IInputHandler>();
 		}
 
 		private void ChangeDirectionByInput() {
@@ -21,7 +28,7 @@ namespace Core.Movement {
 		}
 
 		private void UpdateDirectionToMove() {
-			_directionToMove.y = GetVerticalInput();
+			_directionToMove.y = _inputHandlerPC.GetVerticalInput();
 		}
 
 		private void ChangeRotationByInput() {
@@ -30,15 +37,7 @@ namespace Core.Movement {
 		}
 
 		private void UpdateDirectionToRotate() {
-			_directionToRotate.z = GetHorizontalInput();
-		}
-		
-		private static float GetVerticalInput() {
-			return Input.GetAxis("Vertical");
-		}
-
-		private static float GetHorizontalInput() {
-			return Input.GetAxis("Horizontal");
+			_directionToRotate.z = _inputHandlerPC.GetHorizontalInput();
 		}
 	}
 }
