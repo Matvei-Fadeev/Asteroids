@@ -19,7 +19,13 @@ namespace Core.Movement.Behaviour {
 		}
 
 		private void UpdateTargetPosition() {
-			_targetPosition = target.position;
+			if (target) {
+				_targetPosition = target.position;
+			}
+			else {
+				Debug.LogWarning("Target is null");
+				target = transform;
+			}
 		}
 
 		private void UpdateDirectionToTarget() {
