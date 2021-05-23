@@ -13,7 +13,7 @@ namespace Core.Health {
 		/// </summary>
 		public event EventHandler IsDieEventHandler;
 
-		[Tooltip("Допустимое максимальное здоровье, которое будет даваться при старте объекту")] 
+		[Tooltip("Допустимое максимальное здоровье, которое будет даваться объекту вначале")] 
 		[SerializeField] private int maxHealth;
 
 		private int _health;
