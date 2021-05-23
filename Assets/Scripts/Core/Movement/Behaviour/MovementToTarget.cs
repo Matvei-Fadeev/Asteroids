@@ -1,8 +1,12 @@
-﻿using Core.Movement.Facade;
+﻿using System;
+using Core.Movement.Facade;
 using UnityEngine;
 
 namespace Core.Movement.Behaviour {
 	public class MovementToTarget : FacadeToMovement {
+		[Tooltip("Если player и есть target")]
+		[SerializeField] private bool followToPlayer = true;
+		[SerializeField] private string playerTag = "Player";
 		[Tooltip("Цель, к которой будет двигаться")]
 		[SerializeField] private Transform target;
 			
@@ -11,6 +15,12 @@ namespace Core.Movement.Behaviour {
 
 		private Vector3 _targetPosition;
 		private Vector2 _directionToTarget;
+
+		private void Start() {
+			if (followToPlayer) {
+				target = GameObject.FindGameObjectWithTag(playerTag).transform;
+			}
+		}
 
 		private void FixedUpdate() {
 			UpdateTargetPosition();
