@@ -7,9 +7,14 @@ namespace Core.Weapon {
 	/// Берут из очереди пули, и выстреливает в нужном направлении.
 	/// </summary>
 	public class Weapon : MonoBehaviour {
-		[SerializeField] private BulletPool bulletPool;
-		[SerializeField] private float shotDelay = 0.5f;
+		[Header("Настройки оружия")]
 		[SerializeField] private bool hasRandomDirection;
+		[SerializeField] private float shotDelay = 0.5f;
+
+		[Header("Обойма")]
+		[SerializeField] private BulletPool bulletPool;
+
+		[Header("Настройки пули")]
 		[Tooltip("Требуется чтобы пуля не появлялась в объекте")]
 		[SerializeField] private float bulletSpawnOffset = 1f;
 
