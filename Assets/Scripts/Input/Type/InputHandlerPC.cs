@@ -9,5 +9,9 @@ namespace Input.Type {
 		public float GetHorizontalInput() {
 			return UnityEngine.Input.GetAxis("Horizontal");
 		}
+
+		public bool HasPressedShoot() {
+			return UnityEngine.Input.GetButtonDown("Submit");
+		}
 	}
 }
