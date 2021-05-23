@@ -3,25 +3,16 @@ using UnityEngine;
 
 namespace Core.Movement.Behaviour {
 	public class MovementByParameters : FacadeToMovement {
-		[SerializeField] private Vector3 defaultRotation;
-		[SerializeField] private Vector3 defaultLocalDirection;
-
-		[Tooltip("Если требуется каждый раз задавать начальные параметры при Update")]
-		[SerializeField] private bool isUpdated;
+		[SerializeField] private float defaultRotation;
+		[SerializeField] private Vector2 defaultLocalDirection;
 
 		private void Start() {
 			SetParametersToMovement();
 		}
 
-		private void FixedUpdate() {
-			if (isUpdated) {
-				SetParametersToMovement();
-			}
-		}
-
 		private void SetParametersToMovement() {
 			SetAngleToRotate(defaultRotation);
-			SetLocalDirectionToMove(defaultLocalDirection);
+			SetDirectionToMove(defaultLocalDirection);
 		}
 	}
 }

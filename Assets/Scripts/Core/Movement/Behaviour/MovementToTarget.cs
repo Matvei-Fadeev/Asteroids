@@ -10,12 +10,12 @@ namespace Core.Movement.Behaviour {
 		[SerializeField] private bool hasFollowToTarget = true;
 
 		private Vector3 _targetPosition;
-		private Vector3 _directionToTarget;
+		private Vector2 _directionToTarget;
 
 		private void FixedUpdate() {
 			UpdateTargetPosition();
 			UpdateDirectionToTarget();
-			SetLocalDirectionToMove(_directionToTarget);
+			SetDirectionToMove(_directionToTarget);
 		}
 
 		private void UpdateTargetPosition() {
@@ -33,7 +33,7 @@ namespace Core.Movement.Behaviour {
 				_directionToTarget = (_targetPosition - transform.position).normalized;
 			}
 			else {
-				_directionToTarget = Vector3.zero;
+				_directionToTarget = Vector2.zero;
 			}
 		}
 	}

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Core.Respawn {
 	public class RespawnController : MonoBehaviour {
 		[Tooltip("Позиция, на которую будет перемещён объект")]
-		[SerializeField] private Vector3 positionToRespawn;
+		[SerializeField] private Vector2 positionToRespawn;
 
 		[Tooltip("Поворот, который будет иметь объект, при телепортации")]
 		[SerializeField] private Quaternion rotationAtRespawn;

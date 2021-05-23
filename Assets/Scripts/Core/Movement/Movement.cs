@@ -6,16 +6,16 @@ namespace Core.Movement {
 		[Tooltip("Отзеркалить поворот объекта")]
 		[SerializeField] protected bool hasReversedRotation = true;
 
-		[SerializeField] protected float movementSpeed;
-		[SerializeField] protected float rotationSpeed;
+		[SerializeField] protected float movementSpeed = 100;
+		[SerializeField] protected float rotationSpeed = 100;
 
-		private Vector3 _angleToRotate;
-		private Vector3 _localDirectionToMove;
+		private float _angleToRotate;
+		private Vector2 _directionToMove;
 
 		/// <summary>
 		/// Угол, на который будет поворачиваться объект при каждом вызове UpdateRotation
 		/// </summary>
-		public Vector3 AngleToRotate {
+		public float AngleToRotate {
 			get => _angleToRotate;
 			set {
 				if (hasReversedRotation) {
@@ -30,23 +30,23 @@ namespace Core.Movement {
 		/// <summary>
 		/// Локальное направление (по оси объекта), в сторону которого будет двигаться объект
 		/// </summary>
-		public Vector3 LocalDirectionToMove {
-			get => _localDirectionToMove;
-			set => _localDirectionToMove = value;
+		public Vector2 DirectionToMove {
+			get => _directionToMove;
+			set => _directionToMove = value;
 		}
-
+			
 		/// <summary>
 		/// Применить поворт относительно осей X, Y и Z
 		/// </summary>
-		protected abstract void UpdateRotation();
+		protected abstract void UpdateRotation(float angleToRotate);
 		/// <summary>
 		/// Переместить в направлении и на расстояние LocalDirectionToMove
 		/// </summary>
-		protected abstract void UpdateMovement();
+		protected abstract void UpdateMovement(Vector2 directionToMove);
 
 		private void Update() {
-			UpdateRotation();
-			UpdateMovement();
+			UpdateRotation(_angleToRotate);
+			UpdateMovement(_directionToMove);
 		}
 	}
 }
