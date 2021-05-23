@@ -23,7 +23,7 @@ namespace Tests.MovementTests {
 
 			// Set needed component
 			_rigidbody = _gameObject.AddComponent<Rigidbody2D>();
-			var movement = _gameObject.AddComponent<Rigidbody2DMovement>();
+			var movement = _gameObject.AddComponent<Rigidbody2DMovementImpulse>();
 			_facadeToMove = _gameObject.AddComponent<FacadeToMovement>();
 			_facadeToMove.SetMovement(movement);
 		}

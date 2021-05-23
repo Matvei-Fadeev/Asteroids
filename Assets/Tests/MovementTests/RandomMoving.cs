@@ -27,7 +27,7 @@ namespace Tests.MovementTests {
 
 			// Set needed component
 			_rigidbody = _gameObject.AddComponent<Rigidbody2D>();
-			_movement = _gameObject.AddComponent<Rigidbody2DMovement>();
+			_movement = _gameObject.AddComponent<Rigidbody2DMovementVelocity>();
 			_randomMoving = _gameObject.AddComponent<MovementToRandomDirection>();
 			_randomMoving.SetMovement(_movement);
 		}
