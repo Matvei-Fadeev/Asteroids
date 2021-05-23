@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 1357875851603748376}
   - component: {fileID: 1357875851603748377}
   - component: {fileID: 1357875851603748354}
-  - component: {fileID: 1357875851603748355}
   - component: {fileID: 1357875851603748356}
   - component: {fileID: 1357875851603748357}
   - component: {fileID: 1379324077665980183}
   - component: {fileID: 5412518862800673395}
+  - component: {fileID: 8621542234980897670}
   m_Layer: 0
   m_Name: EnemySmall
   m_TagString: Untagged
@@ -153,20 +153,6 @@ MonoBehaviour:
   hasReversedRotation: 1
   movementSpeed: 1
   rotationSpeed: 100
---- !u!114 &1357875851603748355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1357875851603748378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81470b58c2e4f1f9b42db96fed815b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingRotation: 10
-  startingDirectionToMove: {x: -1, y: 0}
 --- !u!114 &1357875851603748356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 420bf89eabe648bdbf35a5c39f72df95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2
+  maxHealth: 1
 --- !u!114 &1379324077665980183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,6 +192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a450c68089d434a8585f676cf6373c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasImpulse: 1
+  forceImpulse: 0.2
 --- !u!114 &5412518862800673395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,6 +207,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+--- !u!114 &8621542234980897670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357875851603748378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f93181ae594fe38fc5417b2d006a6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followToPlayer: 1
+  playerTag: Player
+  target: {fileID: 0}
+  hasFollowToTarget: 1
 --- !u!1001 &3046058247702342395
 PrefabInstance:
   m_ObjectHideFlags: 0
