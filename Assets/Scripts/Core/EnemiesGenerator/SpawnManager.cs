@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Core.EnemiesGenerator {
 	/// <summary>
@@ -15,12 +16,8 @@ namespace Core.EnemiesGenerator {
 
 		[SerializeField] private EnemyGeneration[] enemiesCfg;
 
-		// количество углов экрана, точки по краям экрана
-		private const int CountOfPoints = 1;
-
 		// Нужен, чтобы объект не стал телепортироваться от стенки к стенке
 		private const int Offset = 10;
-		private Vector2[] _pointsToSpawn;
 		private IEnumerator _coroutine;
 		private WaitForSeconds _delayBetweenEnemies;
 		private WaitForSeconds _delayBetweenWaves;
@@ -31,23 +28,37 @@ namespace Core.EnemiesGenerator {
 			[Range(0f, 1f)] public float chance;
 		}
 
-		private void Awake() {
-			GenerateSpawnPoints();
-		}
-
 		private void OnEnable() {
 			_coroutine = InfiniteLoopOfRandomSpawn();
 			StartCoroutine(_coroutine);
 		}
+		
+		/// <returns>Позиция спавна сбоку или скраю</returns>
+		private Vector2 GetRandomPositionOnBorder() {
+			// Разрешение экрана
+			var camWidth = UnityEngine.Camera.main.scaledPixelWidth;
+			var camHeight = UnityEngine.Camera.main.scaledPixelHeight;
+			
+			// Из 9 случаев не подходит, когда спавн в центре экрана, нужен сбоку или скраю
+			var badCase = new Vector2(camWidth / 2, camHeight / 2);
+			Vector2 position = badCase;
+			while (position == badCase) {
+				var width = GetRandomLength(camWidth);
+				var height = GetRandomLength(camHeight);
+				position = new Vector2(width, height);
+			}
 
-		private void GenerateSpawnPoints() {
-			_pointsToSpawn = new Vector2[CountOfPoints];
+			// Переводит из координат экрана в мировые
+			var worldPoint = UnityEngine.Camera.main.ScreenToWorldPoint(position);
+			return worldPoint;
+		}
 
-			var cam = UnityEngine.Camera.main;
-
-
-			var leftDown = new Vector2(Offset, Offset);
-			_pointsToSpawn[0] = cam.ScreenToWorldPoint(leftDown);
+		/// <param name="displayLength">размер экрана в ширину или в длину</param>
+		/// <returns>Получаем края левый или правый, либо центр</returns>
+		private float GetRandomLength(float displayLength) {
+			float[] length = {0, displayLength / 2, displayLength};
+			int number = Random.Range(0, length.Length);
+			return length[number];
 		}
 
 		private void OnDisable() {
@@ -74,8 +85,8 @@ namespace Core.EnemiesGenerator {
 		}
 
 		private void SpawnObject(Transform enemyTransform) {
-			var numberOfPoint = UnityEngine.Random.Range(0, _pointsToSpawn.Length);
-			Instantiate(enemyTransform, _pointsToSpawn[numberOfPoint], Quaternion.identity);
+			var positionToSpawn = GetRandomPositionOnBorder();
+			Instantiate(enemyTransform, positionToSpawn, Quaternion.identity);
 		}
 	}
 }
