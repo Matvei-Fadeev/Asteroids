@@ -30,22 +30,16 @@ namespace Tests.MovementTests {
 			_facadeToMove.SetMovement(_movement);
 		}
 
-		[OneTimeSetUp]
+		[SetUp]
 		public void Setup() {
 			Reset();
 		}
-
-		private GameObject GetNewObject() {
-			Reset();
-			return _gameObject;
-		}
-
 
 		[UnityTest]
 		public IEnumerator DoNotRotate() {
 			float rotation = 0f;
 
-			var defaultPosition = GetNewObject().transform.position;
+			var defaultPosition = _gameObject.transform.position;
 			_facadeToMove.SetAngleToRotate(rotation);
 			yield return new WaitForSeconds(_frameDelay);
 
@@ -54,7 +48,7 @@ namespace Tests.MovementTests {
 
 		[UnityTest]
 		public IEnumerator DoNotRotateWithoutDirection() {
-			var player = GetNewObject();
+			var player = _gameObject;
 			var defaultRotation = player.transform.rotation;
 			yield return new WaitForSeconds(_frameDelay);
 			Assert.AreEqual(defaultRotation, player.transform.rotation);
@@ -63,7 +57,7 @@ namespace Tests.MovementTests {
 		[UnityTest]
 		public IEnumerator RotationToLeft() {
 			float directionToRotate = -1f;
-			var player = GetNewObject();
+			var player = _gameObject;
 			var defaultRotationZ = player.transform.rotation.z;
 			_facadeToMove.SetAngleToRotate(directionToRotate);
 			yield return new WaitForSeconds(_frameDelay);
@@ -75,7 +69,7 @@ namespace Tests.MovementTests {
 		[UnityTest]
 		public IEnumerator RotatingToRight() {
 			float directionToRotate = +1f;
-			var player = GetNewObject();
+			var player = _gameObject;
 			var defaultRotationZ = player.transform.rotation.z;
 			_facadeToMove.SetAngleToRotate(directionToRotate);
 			yield return new WaitForSeconds(_frameDelay);

@@ -28,21 +28,16 @@ namespace Tests.MovementTests {
 			_facadeToMove.SetMovement(movement);
 		}
 
-		[OneTimeSetUp]
+		[SetUp]
 		public void Setup() {
 			Reset();
-		}
-
-		private GameObject GetNewObject() {
-			Reset();
-			return _gameObject;
 		}
 
 		[UnityTest]
 		public IEnumerator DoNotMoveWithVectorZero() {
 			Vector2 direction = Vector2.zero;
 
-			var defaultPosition = GetNewObject().transform.position;
+			var defaultPosition = _gameObject.transform.position;
 			_facadeToMove.SetDirectionToMove(direction);
 			yield return new WaitForSeconds(_frameDelay);
 
@@ -51,7 +46,7 @@ namespace Tests.MovementTests {
 
 		[UnityTest]
 		public IEnumerator DoNotMoveWithoutDirection() {
-			var player = GetNewObject();
+			var player = _gameObject;
 			var defaultPosition = player.transform.position;
 			yield return new WaitForSeconds(_frameDelay);
 			Assert.AreEqual(defaultPosition, player.transform.position);
@@ -67,7 +62,7 @@ namespace Tests.MovementTests {
 		[UnityTest]
 		public IEnumerator MovingToDirections([ValueSource(nameof(_directions))]
 			Vector2 direction) {
-			var defaultPosition = GetNewObject().transform.position;
+			var defaultPosition = _gameObject.transform.position;
 			_facadeToMove.SetDirectionToMove(direction);
 			yield return new WaitForSeconds(_frameDelay);
 
