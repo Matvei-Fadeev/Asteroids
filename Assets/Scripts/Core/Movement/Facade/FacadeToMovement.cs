@@ -17,7 +17,7 @@ namespace Core.Movement.Facade {
 		}
 
 		private void SetMovement() {
-			_movement = gameObject.GetComponent<Movement>();
+			_movement = GetComponent<Movement>();
 		}
 
 		/// <summary>
