@@ -1,3 +1,5 @@
+using System;
+
 namespace Input {
 	public interface IInputHandler {
 		/// <returns>Возвращает значение смещения от виртуальной оси по вертикали</returns>

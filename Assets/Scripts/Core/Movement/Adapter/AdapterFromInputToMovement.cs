@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Core.Movement.Adapters {
 	public class AdapterFromInputToMovement : FacadeToMovement {
-		private IInputHandler _inputHandlerPC;
+		private IInputHandler _inputHandler;
 		
 		protected override void Awake() {
 			base.Awake();
@@ -12,12 +12,12 @@ namespace Core.Movement.Adapters {
 		}
 
 		private void SetInputComponent() {
-			_inputHandlerPC = gameObject.GetComponent<IInputHandler>();
+			_inputHandler = gameObject.GetComponent<IInputHandler>();
 		}
 
 		private void Update() {
-			SetAngleToRotate(new Vector3(0, 0, _inputHandlerPC.GetHorizontalInput()));
-			SetLocalDirectionToMove(new Vector3(0, _inputHandlerPC.GetVerticalInput()));
+			SetAngleToRotate(_inputHandler.GetHorizontalInput());
+			SetDirectionToMove(new Vector2(0, _inputHandler.GetVerticalInput()));
 		}
 	}
 }
