@@ -32,14 +32,9 @@ namespace Tests.MovementTests {
 			_facadeToMove.SetMovement(_movement);
 		}
 
-		[OneTimeSetUp]
+		[SetUp]
 		public void Setup() {
 			Reset();
-		}
-
-		private GameObject GetNewObject() {
-			Reset();
-			return _gameObject;
 		}
 
 		public struct InputOutput {
@@ -70,7 +65,7 @@ namespace Tests.MovementTests {
 			Vector2 forwardDirection = testData.direction;
 			float directionToRotate = testData.rotation;
 
-			var player = GetNewObject();
+			var player = _gameObject;
 			var defaultPosition = player.transform.position;
 			_facadeToMove.SetAngleToRotate(directionToRotate);
 			yield return new WaitForSeconds(_microDelay);
@@ -90,7 +85,7 @@ namespace Tests.MovementTests {
 		[UnityTest]
 		public IEnumerator AutoStopMoving([ValueSource(nameof(_directions))]
 			Vector2 direction) {
-			var player = GetNewObject();
+			var player = _gameObject;
 			var defaultPosition = player.transform.position;
 
 			var lastVelocity = GetAbsVelocity();
@@ -114,7 +109,7 @@ namespace Tests.MovementTests {
 		public IEnumerator AutoStopRotation([Values(-1f, 1f)] float rotation) {
 			var rotationDirection = rotation;
 
-			var player = GetNewObject();
+			var player = _gameObject;
 			var defaultPosition = player.transform.position;
 
 			var lastVelocity = GetAbsAngularVelocity();
