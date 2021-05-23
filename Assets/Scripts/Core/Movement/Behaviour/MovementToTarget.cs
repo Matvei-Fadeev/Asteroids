@@ -18,7 +18,8 @@ namespace Core.Movement.Behaviour {
 
 		private void Start() {
 			if (followToPlayer) {
-				target = GameObject.FindGameObjectWithTag(playerTag).transform;
+				var player = GameObject.FindGameObjectWithTag(playerTag);
+				target = player ? player.transform : transform;
 			}
 		}
 
@@ -26,6 +27,7 @@ namespace Core.Movement.Behaviour {
 			UpdateTargetPosition();
 			UpdateDirectionToTarget();
 			SetDirectionToMove(_directionToTarget);
+			SetAngleToRotate(_directionToTarget.x);
 		}
 
 		private void UpdateTargetPosition() {

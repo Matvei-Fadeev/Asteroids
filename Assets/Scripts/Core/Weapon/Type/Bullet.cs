@@ -1,7 +1,7 @@
 using Core.Damageable;
 using UnityEngine;
 
-namespace Core.Weapon {
+namespace Core.Weapon.Type {
 	[RequireComponent(typeof(Rigidbody2D))]
 	[RequireComponent(typeof(BoxCollider2D))]
 	public class Bullet : DamageableCollision {
@@ -18,7 +18,7 @@ namespace Core.Weapon {
 
 		protected override void OnCollisionEnter2D(Collision2D collision) {
 			base.OnCollisionEnter2D(collision);
-			_bulletPool.ReturnBullet(this);
+			ReturnToPool();
 		}
 
 		/// <summary>
@@ -32,7 +32,12 @@ namespace Core.Weapon {
 		}
 
 		private void ReturnToPool() {
-			_bulletPool.ReturnBullet(this);
+			if (_bulletPool) {
+				_bulletPool.ReturnBullet(this);
+			}
+			else {
+				Destroy(gameObject);
+			}
 		}
 	}
 }

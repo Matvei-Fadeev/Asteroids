@@ -5,9 +5,11 @@ namespace Core.BorderPortal {
 	/// Данный скрипт, заставляет объект держаться в зоне видимости камеры.
 	/// Телепортирует объект, если тот заходит за границы камеры.
 	/// </summary>
-	public class BorderTeleportation : MonoBehaviour {
-		[Tooltip("импульс даваемый при телепортации")]
-		private float forceImpulse = 1f;
+	public class CameraBorderTeleportation : MonoBehaviour {
+		[Tooltip("Если необходим импульс даваемый при телепортации")]
+		[SerializeField] private bool hasImpulse = true;
+		[Tooltip("Сила импульса даваемый при телепортации")]
+		[SerializeField] private float forceImpulse = 0.2f;
 
 		[Tooltip("Дистанция, чтобы игрок выходил за действие видимости камеры")]
 		private float deltaDistance = 0.05f;
@@ -30,7 +32,7 @@ namespace Core.BorderPortal {
 			// Этот небольшой оффсет, не даёт увидеть телепортацию объекта
 			if (viewPosAxis < -deltaDistance || viewPosAxis > 1 + deltaDistance) {
 				// Даём импульс, чтобы объект не застрял на границе, постоянно телепортируясь
-				if (_rigidbody) {
+				if (_rigidbody && hasImpulse) {
 					_rigidbody.AddForce(_rigidbody.velocity.normalized * forceImpulse, ForceMode2D.Impulse);
 				}
 
