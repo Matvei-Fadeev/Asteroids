@@ -16,7 +16,7 @@ namespace Core.Score {
 		/// </summary>
 		public static int CurrentScore {
 			get => _currentScore;
-			protected set {
+			private set {
 				Debug.Log(value);
 				_currentScore = value;
 				ScoreUpdatedEvent?.Invoke(null, _currentScore);
