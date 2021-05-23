@@ -1,18 +1,19 @@
 ﻿using Core.Movement.Facade;
 using UnityEngine;
+using Random = System.Random;
 
 namespace Core.Movement.Behaviour {
 	public class MovementByParameters : FacadeToMovement {
-		[SerializeField] private float defaultRotation;
-		[SerializeField] private Vector2 defaultLocalDirection;
+		[SerializeField] private float startingRotation;
+		[SerializeField] private Vector2 startingDirectionToMove;
 
 		private void Start() {
 			SetParametersToMovement();
 		}
 
 		private void SetParametersToMovement() {
-			SetAngleToRotate(defaultRotation);
-			SetDirectionToMove(defaultLocalDirection);
+			SetAngleToRotate(startingRotation);
+			SetDirectionToMove(startingDirectionToMove);
 		}
 	}
 }
