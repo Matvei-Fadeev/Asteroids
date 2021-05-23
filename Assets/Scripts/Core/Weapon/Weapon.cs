@@ -2,6 +2,10 @@
 using UnityEngine;
 
 namespace Core.Weapon {
+	/// <summary>
+	/// Объекты данного класса отвечают за стрельбу пулями.
+	/// Берут из очереди пули, и выстреливает в нужном направлении.
+	/// </summary>
 	public class Weapon : MonoBehaviour {
 		[SerializeField] private BulletPool bulletPool;
 		[SerializeField] private float shotDelay = 0.5f;
