@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Core.Weapon.Type;
 using UnityEngine;
 
 namespace Core.Weapon {
@@ -44,6 +45,9 @@ namespace Core.Weapon {
 			bullet.gameObject.SetActive(false);
 			bullet.transform.SetParent(transform);
 			bullet.transform.position = transform.position;
+			if (_bulletsPool.Equals(null)) {
+				Destroy(gameObject);
+			}
 			_bulletsPool.Enqueue(bullet);
 		}
 

@@ -10,6 +10,8 @@ namespace Core.Weapon {
 		[SerializeField] private BulletPool bulletPool;
 		[SerializeField] private float shotDelay = 0.5f;
 		[SerializeField] private bool hasRandomDirection;
+		[Tooltip("Требуется чтобы пуля не появлялась в объекте")]
+		[SerializeField] private float bulletSpawnOffset = 1f;
 
 		private IInputHandler _inputHandler;
 		private float _timeOfShot;
@@ -27,7 +29,9 @@ namespace Core.Weapon {
 		private void TakeShot() {
 			if ((Time.time - _timeOfShot) > shotDelay) {
 				_timeOfShot = Time.time;
-				var bullet = bulletPool.GetBullet(transform.position);
+				
+				var transformPosition = transform.position + transform.up * bulletSpawnOffset;
+				var bullet = bulletPool.GetBullet(transformPosition);
 				bullet.Shoot(GetBulletDirection());
 			}
 		}
