@@ -1,11 +1,10 @@
-using Core.Health;
+using Core.Damageable;
 using UnityEngine;
 
 namespace Core.Weapon {
 	[RequireComponent(typeof(Rigidbody2D))]
 	[RequireComponent(typeof(BoxCollider2D))]
-	public class Bullet : MonoBehaviour {
-		[SerializeField] private int damage = 1;
+	public class Bullet : DamageableCollision {
 		[SerializeField] private float speed = 10f;
 		[SerializeField] private float maxLifetime = 2f;
 
@@ -17,12 +16,8 @@ namespace Core.Weapon {
 			_rigidbody = GetComponent<Rigidbody2D>();
 		}
 
-		private void OnCollisionEnter2D(Collision2D collision) {
-			var objectHealth = collision.gameObject.GetComponent<HealthPoints>();
-			if (objectHealth) {
-				objectHealth.Hit(damage);
-			}
-			
+		protected override void OnCollisionEnter2D(Collision2D collision) {
+			base.OnCollisionEnter2D(collision);
 			_bulletPool.ReturnBullet(this);
 		}
 

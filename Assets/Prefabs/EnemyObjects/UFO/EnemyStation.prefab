@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6092016421840655109}
   - component: {fileID: 6092016421840655108}
   - component: {fileID: 8796616852893435966}
+  - component: {fileID: 2186053730442651100}
   m_Layer: 0
   m_Name: EnemyStation
   m_TagString: Untagged
@@ -205,6 +206,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a450c68089d434a8585f676cf6373c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2186053730442651100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6092016421840655131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4e2ca7f962e4e1285b46be2adcdeaf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1001 &1633956867175819835
 PrefabInstance:
   m_ObjectHideFlags: 0
