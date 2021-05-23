@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6016265329493491284}
   - component: {fileID: 357614239005861444}
-  - component: {fileID: 4569654099320710871}
   - component: {fileID: 2845102486755875733}
+  - component: {fileID: 1527312711511342158}
   m_Layer: 0
   m_Name: AsteroidLarge
   m_TagString: Untagged
@@ -55,21 +55,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4569654099320710871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912536996602526296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 902f9ff6e51f4dcab00f41dd0fdf45b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasReversedRotation: 1
-  movementSpeed: 100
-  rotationSpeed: 100
 --- !u!114 &2845102486755875733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,6 +67,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776ff79d04474d108746fd92d3c3bf49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enableRandomSpeed: 1
+  minSpeed: 0.5
+  maxSpeed: 2
+--- !u!114 &1527312711511342158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912536996602526296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0052eac17e5b462ab67906db33b16a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasReversedRotation: 1
+  movementSpeed: 1
+  rotationSpeed: 100
 --- !u!1 &1394871021751823688
 GameObject:
   m_ObjectHideFlags: 0

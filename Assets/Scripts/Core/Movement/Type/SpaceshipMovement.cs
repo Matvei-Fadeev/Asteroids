@@ -1,7 +1,7 @@
 using UnityEngine;
 
 namespace Core.Movement.Type {
-	public class SpaceshipMovement : Rigidbody2DMovement {
+	public class SpaceshipMovement : Rigidbody2DMovementImpulse {
 		[SerializeField] private float stopSpeedOfMoving = 2;
 		[SerializeField] private float stopSpeedOfRotation = 10;
 

@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace Core.Movement.Behaviour {
-	class MovementToRandomDirection : FacadeToMovement {
+	public class MovementToRandomDirection : FacadeToMovement {
 		[Tooltip("Позволяет не только поменять направление движения, но и изменить скорость движения")]
 		[SerializeField] private bool enableRandomSpeed;
 		[Tooltip("Во сколько раз может уменьшится скорость от изначальной. Изначальная скорость = 1f.")]

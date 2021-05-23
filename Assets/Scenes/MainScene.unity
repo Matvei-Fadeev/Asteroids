@@ -369,26 +369,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AsteroidLarge
       objectReference: {fileID: 0}
-    - target: {fileID: 912536996602526296, guid: 08fd457fdaf74664d829986b33bfcd80, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1097806059398645243, guid: 08fd457fdaf74664d829986b33bfcd80, type: 3}
-      propertyPath: defaultLocalDirection.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1097806059398645243, guid: 08fd457fdaf74664d829986b33bfcd80, type: 3}
-      propertyPath: defaultLocalDirection.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2845102486755875733, guid: 08fd457fdaf74664d829986b33bfcd80, type: 3}
-      propertyPath: enableRandomSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4569654099320710871, guid: 08fd457fdaf74664d829986b33bfcd80, type: 3}
-      propertyPath: movementSpeed
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6016265329493491284, guid: 08fd457fdaf74664d829986b33bfcd80, type: 3}
       propertyPath: m_RootOrder
       value: 6
