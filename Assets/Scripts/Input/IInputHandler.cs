@@ -7,5 +7,7 @@ namespace Input {
 
 		/// <returns>Возвращает значение смещения от виртуальной оси по горизонтале</returns>
 		float GetHorizontalInput();
+
+		bool HasPressedShoot();
 	}
 }

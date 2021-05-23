@@ -12,7 +12,7 @@ namespace Core.Movement.Adapters {
 		}
 
 		private void SetInputComponent() {
-			_inputHandler = gameObject.GetComponent<IInputHandler>();
+			_inputHandler = GetComponent<IInputHandler>();
 		}
 
 		private void Update() {
