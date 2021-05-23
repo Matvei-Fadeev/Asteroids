@@ -151,7 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasReversedRotation: 1
   movementSpeed: 1
-  rotationSpeed: 100
+  rotationSpeed: 50
 --- !u!114 &871276014459485608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776ff79d04474d108746fd92d3c3bf49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enableRandomRotation: 1
   enableRandomSpeed: 1
   minSpeed: 0.2
   maxSpeed: 1.2
@@ -180,7 +181,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreAmount: 5
-  whenAddScore: 2
 --- !u!114 &871276014459485610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,6 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a450c68089d434a8585f676cf6373c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasImpulse: 1
+  forceImpulse: 0.2
 --- !u!114 &666469576663751281
 MonoBehaviour:
   m_ObjectHideFlags: 0

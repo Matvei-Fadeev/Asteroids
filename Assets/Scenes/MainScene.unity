@@ -200,7 +200,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1593210461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,19 +213,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46c5af1bf394fd045a8d52272574b8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBetweenEnemies: 1
-  delayBetweenWaves: 5
+  delayBetweenEnemies: 2
+  delayBetweenWaves: 2
   enemiesCfg:
   - objectTransform: {fileID: 871276014459485651, guid: 6c65ec3fbc5bf7a42b9b1e1564dfa788, type: 3}
-    chance: 0.536
+    chance: 0.784
   - objectTransform: {fileID: 4404792103664976150, guid: cad70ff394a7d7c49aa3f464d85ac9ea, type: 3}
-    chance: 0.378
+    chance: 0.607
   - objectTransform: {fileID: 534712881584640696, guid: 8baf88c58f50a564590e09436ed4e5ae, type: 3}
-    chance: 0.194
+    chance: 0.498
   - objectTransform: {fileID: 6092016421840655111, guid: 5c8d55239e52ef14dac0ea06f22b7fff, type: 3}
-    chance: 0.189
+    chance: 0.32
   - objectTransform: {fileID: 1357875851603748358, guid: 4203c151110594c4495328b73b8ffd3b, type: 3}
-    chance: 0.084
+    chance: 0.163
 --- !u!4 &1593210462
 Transform:
   m_ObjectHideFlags: 0
@@ -464,6 +464,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 871276014459485608, guid: 6c65ec3fbc5bf7a42b9b1e1564dfa788, type: 3}
+      propertyPath: enableRandomRotation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 871276014459485611, guid: 6c65ec3fbc5bf7a42b9b1e1564dfa788, type: 3}
       propertyPath: m_Name
       value: LargeAsteroid
@@ -643,6 +647,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4404792103664976145, guid: cad70ff394a7d7c49aa3f464d85ac9ea, type: 3}
+      propertyPath: enableRandomRotation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4404792103664976150, guid: cad70ff394a7d7c49aa3f464d85ac9ea, type: 3}
       propertyPath: m_RootOrder
       value: 5

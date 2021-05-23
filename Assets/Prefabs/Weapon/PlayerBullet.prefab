@@ -160,6 +160,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  speed: 10
+  speed: 5
   maxLifetime: 2
-  isPlayerBullet: 1

@@ -165,8 +165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f81470b58c2e4f1f9b42db96fed815b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingRotation: 10
-  startingDirectionToMove: {x: -1, y: 0}
+  startingRotation: 0.5
+  startingDirectionToMove: {x: 0.5, y: 1}
 --- !u!114 &6092016421840655109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,7 +180,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreAmount: 20
-  whenAddScore: 2
 --- !u!114 &6092016421840655108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,6 +205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a450c68089d434a8585f676cf6373c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasImpulse: 1
+  forceImpulse: 0.2
 --- !u!114 &2186053730442651100
 MonoBehaviour:
   m_ObjectHideFlags: 0
