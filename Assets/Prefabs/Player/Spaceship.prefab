@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 469750524790539932}
   - component: {fileID: 469750524790539935}
   - component: {fileID: 469750524790539934}
+  - component: {fileID: 889261688}
   m_Layer: 0
   m_Name: Spaceship
   m_TagString: Player
@@ -205,6 +206,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionToRespawn: {x: 0, y: 0}
   rotationAtRespawn: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &889261688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469750524790540006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77a450c68089d434a8585f676cf6373c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &469750525264972833
 PrefabInstance:
   m_ObjectHideFlags: 0
