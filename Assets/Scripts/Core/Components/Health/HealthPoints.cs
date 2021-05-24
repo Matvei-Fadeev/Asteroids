@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Core.Health {
+namespace Core.Components.Health {
 	public class HealthPoints : MonoBehaviour {
 		/// <summary>
 		/// Событие вызываемое каждый раз при изменении здоровья
@@ -20,8 +20,8 @@ namespace Core.Health {
 		[SerializeField] private DeathAction deathAction;
 
 		private enum DeathAction {
-			DESTROY,
-			INACTIVE
+			Destroy,
+			Inactive
 		}
 
 		private int _health;
@@ -49,10 +49,10 @@ namespace Core.Health {
 
 		private void SetDeath() {
 			switch (deathAction) {
-				case DeathAction.DESTROY:
+				case DeathAction.Destroy:
 					Destroy(gameObject);
 					break;
-				case DeathAction.INACTIVE:
+				case DeathAction.Inactive:
 					gameObject.SetActive(false);
 					break;
 				default:

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Core.Movement.Type {
+namespace Core.Components.Movement.Type {
 	[RequireComponent(typeof(Rigidbody2D))]
 	public abstract class Rigidbody2DMovement : Movement {
 		protected Rigidbody2D Rigidbody2D;

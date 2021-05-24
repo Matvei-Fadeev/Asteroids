@@ -1,7 +1,6 @@
 using System;
-using UnityEngine;
 
-namespace Core.Score {
+namespace Core.Managers.Score {
 	/// <summary>
 	/// Класс хранящий и обрабатывающий логику score
 	/// </summary>
@@ -22,7 +21,7 @@ namespace Core.Score {
 			}
 		}
 
-		private static int _currentScore = 0;
+		private static int _currentScore;
 
 		/// <summary>
 		/// Добавляет очки к текущему количеству

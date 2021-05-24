@@ -1,7 +1,7 @@
 using System.Collections;
-using Core.Movement;
-using Core.Movement.Facade;
-using Core.Movement.Type;
+using Core.Components.Movement;
+using Core.Components.Movement.Facade;
+using Core.Components.Movement.Type;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
@@ -39,7 +39,6 @@ namespace Tests.MovementTests {
 		public IEnumerator DoNotRotate() {
 			float rotation = 0f;
 
-			var defaultPosition = _gameObject.transform.position;
 			_facadeToMove.SetAngleToRotate(rotation);
 			yield return new WaitForSeconds(_frameDelay);
 

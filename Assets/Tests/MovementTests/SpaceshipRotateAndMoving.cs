@@ -1,7 +1,7 @@
 using System.Collections;
-using Core.Movement;
-using Core.Movement.Facade;
-using Core.Movement.Type;
+using Core.Components.Movement;
+using Core.Components.Movement.Facade;
+using Core.Components.Movement.Type;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
@@ -38,16 +38,16 @@ namespace Tests.MovementTests {
 		}
 
 		public struct InputOutput {
-			public Vector2 direction;
-			public float rotation;
-			public bool positiveYAxis;
-			public bool positiveXAxis;
+			public Vector2 Direction;
+			public readonly float Rotation;
+			public readonly bool PositiveYAxis;
+			public readonly bool PositiveXAxis;
 
 			public InputOutput(Vector2 direction, float rotation, bool positiveYAxis, bool positiveXAxis) {
-				this.direction = direction;
-				this.rotation = rotation;
-				this.positiveYAxis = positiveYAxis;
-				this.positiveXAxis = positiveXAxis;
+				this.Direction = direction;
+				this.Rotation = rotation;
+				this.PositiveYAxis = positiveYAxis;
+				this.PositiveXAxis = positiveXAxis;
 			}
 		}
 
@@ -56,14 +56,14 @@ namespace Tests.MovementTests {
 			new InputOutput(Vector2.up, 1f, true, true),
 			new InputOutput(Vector2.up, -1f, true, false),
 			new InputOutput(Vector2.down, 1f, false, false),
-			new InputOutput(Vector2.down, -1f, false, true),
+			new InputOutput(Vector2.down, -1f, false, true)
 		};
 
 		[UnityTest]
 		public IEnumerator RotationToLeftAndMoveForward([ValueSource(nameof(_inputOutputsTestCase))]
 			InputOutput testData) {
-			Vector2 forwardDirection = testData.direction;
-			float directionToRotate = testData.rotation;
+			Vector2 forwardDirection = testData.Direction;
+			float directionToRotate = testData.Rotation;
 
 			var player = _gameObject;
 			var defaultPosition = player.transform.position;
@@ -74,8 +74,8 @@ namespace Tests.MovementTests {
 			yield return new WaitForSeconds(_microDelay);
 
 			var actualPosition = player.transform.position;
-			Assert.AreEqual((defaultPosition.y < actualPosition.y), testData.positiveYAxis);
-			Assert.AreEqual((defaultPosition.x < actualPosition.x), testData.positiveXAxis);
+			Assert.AreEqual((defaultPosition.y < actualPosition.y), testData.PositiveYAxis);
+			Assert.AreEqual((defaultPosition.x < actualPosition.x), testData.PositiveXAxis);
 		}
 
 		private static Vector2[] _directions = {
@@ -86,7 +86,6 @@ namespace Tests.MovementTests {
 		public IEnumerator AutoStopMoving([ValueSource(nameof(_directions))]
 			Vector2 direction) {
 			var player = _gameObject;
-			var defaultPosition = player.transform.position;
 
 			var lastVelocity = GetAbsVelocity();
 			_facadeToMove.SetDirectionToMove(direction);
@@ -110,7 +109,6 @@ namespace Tests.MovementTests {
 			var rotationDirection = rotation;
 
 			var player = _gameObject;
-			var defaultPosition = player.transform.position;
 
 			var lastVelocity = GetAbsAngularVelocity();
 			_facadeToMove.SetAngleToRotate(rotationDirection);

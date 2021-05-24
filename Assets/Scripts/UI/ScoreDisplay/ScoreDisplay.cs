@@ -1,4 +1,4 @@
-﻿using Core.Score;
+﻿using Core.Managers.Score;
 using UnityEngine;
 using UnityEngine.UI;
 

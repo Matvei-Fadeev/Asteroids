@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Core.Score {
+namespace Core.Managers.Score {
 	/// <summary>
 	/// Необходимо повесить на объект, в случае его уничтожения, будет увеличено количество очков
 	/// </summary>

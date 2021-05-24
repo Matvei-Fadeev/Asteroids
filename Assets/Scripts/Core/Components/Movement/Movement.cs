@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Core.Movement {
+namespace Core.Components.Movement {
 	public abstract class Movement : MonoBehaviour {
 		[Tooltip("Отзеркалить поворот объекта")]
 		[SerializeField] protected bool hasReversedRotation = true;

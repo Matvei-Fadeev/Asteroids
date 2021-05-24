@@ -43,7 +43,7 @@ namespace Core.Weapon {
 
 		private Vector3 GetBulletDirection() {
 			if (hasRandomDirection) {
-				return UnityEngine.Random.insideUnitCircle.normalized;
+				return Random.insideUnitCircle.normalized;
 			}
 			return transform.up;
 		}

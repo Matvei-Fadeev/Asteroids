@@ -1,4 +1,4 @@
-using Core.Damageable;
+using Core.Systems.Damageable;
 using UnityEngine;
 
 namespace Core.Weapon.Type {

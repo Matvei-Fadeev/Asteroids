@@ -1,4 +1,4 @@
-using Core.Health;
+using Core.Components.Health;
 using UnityEngine;
 using UnityEngine.UI;
 

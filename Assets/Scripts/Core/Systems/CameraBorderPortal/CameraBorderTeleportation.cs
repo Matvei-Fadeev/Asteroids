@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Core.BorderPortal {
+namespace Core.Systems.CameraBorderPortal {
 	/// <summary>
 	/// Данный скрипт, заставляет объект держаться в зоне видимости камеры.
 	/// Телепортирует объект, если тот заходит за границы камеры.
@@ -18,7 +18,7 @@ namespace Core.BorderPortal {
 		private Rigidbody2D _rigidbody;
 		
 		private void Start() {
-			_camera = UnityEngine.Camera.main;
+			_camera = Camera.main;
 			_rigidbody = gameObject.GetComponent<Rigidbody2D>();
 		}
 

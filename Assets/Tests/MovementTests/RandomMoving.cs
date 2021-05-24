@@ -1,10 +1,10 @@
 using System.Collections;
-using Core.Movement;
-using Core.Movement.Type;
+using Core.Components.Movement;
+using Core.Components.Movement.Behaviour;
+using Core.Components.Movement.Type;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
-using Core.Movement.Behaviour;
 
 namespace Tests.MovementTests {
 	[TestFixture]
@@ -39,8 +39,6 @@ namespace Tests.MovementTests {
 
 		[UnityTest]
 		public IEnumerator CheckChangingDirection() {
-			var player = _gameObject;
-			
 			var velocity = _rigidbody.velocity;
 			_randomMoving.SetRandomMovingDirection();
 			yield return new WaitForSeconds(_microDelay);
@@ -56,8 +54,6 @@ namespace Tests.MovementTests {
 		public IEnumerator CheckChangingDirectionAndSpeed() {
 			float minSpeed = 0.5f;
 			float maxSpeed = 2f;
-			
-			var player = _gameObject;
 			
 			_randomMoving.SetRandomMovingDirection();
 			yield return new WaitForSeconds(_extraDelay);

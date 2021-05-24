@@ -1,8 +1,7 @@
-﻿using System;
-using Core.Movement.Facade;
+﻿using Core.Components.Movement.Facade;
 using UnityEngine;
 
-namespace Core.Movement.Behaviour {
+namespace Core.Components.Movement.Behaviour {
 	public class MovementToTarget : FacadeToMovement {
 		[Tooltip("Если player и есть target")]
 		[SerializeField] private bool followToPlayer = true;

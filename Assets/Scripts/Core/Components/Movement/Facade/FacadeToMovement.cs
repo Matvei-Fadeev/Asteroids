@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace Core.Movement.Facade {
+namespace Core.Components.Movement.Facade {
 	public class FacadeToMovement : MonoBehaviour {
 		private Movement _movement;
 

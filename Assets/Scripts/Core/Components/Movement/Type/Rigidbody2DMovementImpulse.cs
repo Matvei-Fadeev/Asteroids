@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Core.Movement.Type {
+namespace Core.Components.Movement.Type {
 	public class Rigidbody2DMovementImpulse : Rigidbody2DMovement {
 		protected override void UpdateRotation(float angleToRotate) {
 			Rigidbody2DRotation(angleToRotate);

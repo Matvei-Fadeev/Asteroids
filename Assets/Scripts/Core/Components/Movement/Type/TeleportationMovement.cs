@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Core.Movement.Type {
+namespace Core.Components.Movement.Type {
 	public class TeleportationMovement : Movement {
 		protected override void UpdateRotation(float angleToRotate) {
 			var currentAngleToRotate = angleToRotate * (rotationSpeed * Time.deltaTime);

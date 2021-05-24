@@ -1,5 +1,5 @@
 using System;
-using Core.Health;
+using Core.Components.Health;
 using LoadScene;
 using UnityEngine;
 
@@ -30,7 +30,6 @@ namespace Core.Managers.GameOver {
         /// Перезагрузить текущую сцену
         /// </summary>
         public void RestartGame() {
-            Debug.Log("Click");
             LoadManager.ReloadCurrentScene();
         }
 

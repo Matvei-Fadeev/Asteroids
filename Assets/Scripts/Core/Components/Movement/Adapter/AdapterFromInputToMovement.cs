@@ -1,8 +1,8 @@
-using Core.Movement.Facade;
+using Core.Components.Movement.Facade;
 using Input;
 using UnityEngine;
 
-namespace Core.Movement.Adapters {
+namespace Core.Components.Movement.Adapter {
 	public class AdapterFromInputToMovement : FacadeToMovement {
 		private IInputHandler _inputHandler;
 		

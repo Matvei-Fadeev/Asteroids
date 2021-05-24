@@ -1,7 +1,7 @@
-﻿using Core.Movement.Facade;
+﻿using Core.Components.Movement.Facade;
 using UnityEngine;
 
-namespace Core.Movement.Behaviour {
+namespace Core.Components.Movement.Behaviour {
 	public class MovementToRandomDirection : FacadeToMovement {
 		[Tooltip("Позволяет задать случайное направление поворота.")]
 		[SerializeField] private bool enableRandomRotation;
@@ -41,24 +41,24 @@ namespace Core.Movement.Behaviour {
 		/// <summary>
 		/// Объекту задаётся случайное направление и случайная скорость движения в диапозоне 
 		/// </summary>
-		/// <param name="minSpeed">Минимум возможной скорости. Изначальная скорость = 1f.</param>
-		/// <param name="maxSpeed">Максимум возможной скорости. Изначальная скорость = 1f.</param>
-		public void SetRandomMovingDirectionAndSpeed(float minSpeed, float maxSpeed) {
-			SetDirectionToMove(GetRandomVector(minSpeed,maxSpeed));
+		/// <param name="randomMinSpeed">Минимум возможной скорости. Изначальная скорость = 1f.</param>
+		/// <param name="randomMaxSpeed">Максимум возможной скорости. Изначальная скорость = 1f.</param>
+		public void SetRandomMovingDirectionAndSpeed(float randomMinSpeed, float randomMaxSpeed) {
+			SetDirectionToMove(GetRandomVector(randomMinSpeed,randomMaxSpeed));
 		}
 
-		private Vector2 GetRandomNormalizedVector() {
-			return UnityEngine.Random.insideUnitCircle.normalized;
+		private static Vector2 GetRandomNormalizedVector() {
+			return Random.insideUnitCircle.normalized;
 		}
 
-		private Vector2 GetRandomVector(float min, float max) {
+		private static Vector2 GetRandomVector(float min, float max) {
 			var normalizedVector = GetRandomNormalizedVector();
-			var resultedVector = normalizedVector * UnityEngine.Random.Range(min, max);
+			var resultedVector = normalizedVector * Random.Range(min, max);
 			return resultedVector;
 		}
 
-		private float GetRandomRotation() {
-			return UnityEngine.Random.rotation.z;
+		private static float GetRandomRotation() {
+			return Random.rotation.z;
 		}
 	}
 }

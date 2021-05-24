@@ -1,6 +1,6 @@
 using System.Collections;
-using Core.Movement.Facade;
-using Core.Movement.Type;
+using Core.Components.Movement.Facade;
+using Core.Components.Movement.Type;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
@@ -37,7 +37,6 @@ namespace Tests.MovementTests {
 		public IEnumerator DoNotMoveWithVectorZero() {
 			Vector2 direction = Vector2.zero;
 
-			var defaultPosition = _gameObject.transform.position;
 			_facadeToMove.SetDirectionToMove(direction);
 			yield return new WaitForSeconds(_frameDelay);
 
@@ -56,13 +55,12 @@ namespace Tests.MovementTests {
 			Vector2.down,
 			Vector2.left,
 			Vector2.right,
-			Vector2.up,
+			Vector2.up
 		};
 
 		[UnityTest]
 		public IEnumerator MovingToDirections([ValueSource(nameof(_directions))]
 			Vector2 direction) {
-			var defaultPosition = _gameObject.transform.position;
 			_facadeToMove.SetDirectionToMove(direction);
 			yield return new WaitForSeconds(_frameDelay);
 

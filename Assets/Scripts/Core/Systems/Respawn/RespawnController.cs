@@ -1,8 +1,7 @@
-using System;
-using Core.Health;
+using Core.Components.Health;
 using UnityEngine;
 
-namespace Core.Respawn {
+namespace Core.Systems.Respawn {
 	public class RespawnController : MonoBehaviour {
 		[Tooltip("Позиция, на которую будет перемещён объект")]
 		[SerializeField] private Vector2 positionToRespawn;

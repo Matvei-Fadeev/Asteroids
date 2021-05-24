@@ -1,9 +1,8 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-namespace Core.EnemiesGenerator {
+namespace Core.Managers.EnemiesGenerator {
 	/// <summary>
 	/// Компонент, поставить на объект, который будет генерировать другие объекты в точке с заданной вероятностью.
 	/// </summary>
@@ -36,11 +35,11 @@ namespace Core.EnemiesGenerator {
 		/// <returns>Позиция спавна сбоку или скраю</returns>
 		private Vector2 GetRandomPositionOnBorder() {
 			// Разрешение экрана
-			var camWidth = UnityEngine.Camera.main.scaledPixelWidth;
+			var camWidth = Camera.main.scaledPixelWidth;
 			var camHeight = UnityEngine.Camera.main.scaledPixelHeight;
 			
 			// Из 9 случаев не подходит, когда спавн в центре экрана, нужен сбоку или скраю
-			var badCase = new Vector2(camWidth / 2, camHeight / 2);
+			var badCase = new Vector2(camWidth / 2f, camHeight / 2f);
 			Vector2 position = badCase;
 			while (position == badCase) {
 				var width = GetRandomLength(camWidth);
@@ -48,7 +47,7 @@ namespace Core.EnemiesGenerator {
 				position = new Vector2(width, height);
 			}
 
-			// Переводит из координат экрана в мировые
+			// Переводет из координат экрана в мировые
 			var worldPoint = UnityEngine.Camera.main.ScreenToWorldPoint(position);
 			return worldPoint;
 		}
@@ -57,7 +56,7 @@ namespace Core.EnemiesGenerator {
 		/// <returns>Получаем края левый или правый, либо центр</returns>
 		private float GetRandomLength(float displayLength) {
 			float[] length = {0, displayLength / 2, displayLength};
-			int number = Random.Range(0, length.Length);
+			int number = UnityEngine.Random.Range(0, length.Length);
 			return length[number];
 		}
 

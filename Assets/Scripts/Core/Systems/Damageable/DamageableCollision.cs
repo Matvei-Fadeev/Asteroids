@@ -1,7 +1,7 @@
-﻿using Core.Health;
+﻿using Core.Components.Health;
 using UnityEngine;
 
-namespace Core.Damageable {
+namespace Core.Systems.Damageable {
 	public class DamageableCollision : MonoBehaviour {
 		[SerializeField] private int damage = 1;
 		
