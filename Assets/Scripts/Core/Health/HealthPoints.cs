@@ -13,8 +13,16 @@ namespace Core.Health {
 		/// </summary>
 		public event EventHandler IsDieEventHandler;
 
-		[Tooltip("Допустимое максимальное здоровье, которое будет даваться объекту вначале")] 
+		[Tooltip("Допустимое максимальное здоровье, которое будет даваться объекту вначале")]
 		[SerializeField] private int maxHealth;
+
+		[Tooltip("Что произойдёт с объектом в случае смерти")]
+		[SerializeField] private DeathAction deathAction;
+
+		private enum DeathAction {
+			DESTROY,
+			INACTIVE
+		}
 
 		private int _health;
 
@@ -40,7 +48,16 @@ namespace Core.Health {
 		}
 
 		private void SetDeath() {
-			Destroy(gameObject);
+			switch (deathAction) {
+				case DeathAction.DESTROY:
+					Destroy(gameObject);
+					break;
+				case DeathAction.INACTIVE:
+					gameObject.SetActive(false);
+					break;
+				default:
+					throw new ArgumentOutOfRangeException();
+			}
 		}
 
 		public void Hit(int damage) {
